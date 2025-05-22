@@ -19,6 +19,7 @@ app = FastAPI()
 
 # Enable CORS
 #test
+2
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Change for production
