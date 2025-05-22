@@ -18,8 +18,7 @@ from aggressive import predict_aggressive_animal
 app = FastAPI()
 
 # Enable CORS
-#test
-2
+#test2
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Change for production
