@@ -210,13 +210,13 @@ async def save_animal_data(data: AnimalData):
         print(f"Error occurred: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error saving data: {str(e)}")
 
-
 @app.post("/get_animal_height1")
 async def get_animal_height1(file: UploadFile = File(...)) -> Dict[str, Any]:
     """
     Detects an animal using YOLOv8 and extracts its height in pixels.
     Then classifies the animal using the InceptionV3 model with proper validations.
     """
+
     try:
         # Read image
         contents = await file.read()
@@ -226,11 +226,15 @@ async def get_animal_height1(file: UploadFile = File(...)) -> Dict[str, Any]:
         results = yolo_model(image)
         detected_objects = results[0].boxes.data.cpu().numpy()
 
+        # Debug: Print all detected class IDs with labels
+
+
+       # print(yolo_model.names)
         if len(detected_objects) == 0:
             return {"error": "No animal detected"}
 
         # Valid YOLO class IDs for animals
-        valid_animal_classes = {14, 18, 19, 20, 21}  # Bird, Cat, Dog, Horse, Sheep, Cow, Elephant, Bear, Zebra, Giraffe
+        valid_animal_classes = {14,15, 16, 17, 18, 19, 20, 21, 22, 23,32}  # Bird, Cat, Dog, Horse, Sheep, Cow, Elephant, Bear, Zebra, Giraffe
 
         # Find the largest valid detected animal
         largest_object = None
@@ -276,6 +280,7 @@ async def get_animal_height1(file: UploadFile = File(...)) -> Dict[str, Any]:
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error detecting height and classifying animal: {str(e)}")
 
+
 @app.get("/get_animal_data")
 async def get_animal_data():
     try:
@@ -303,6 +308,6 @@ import os
 import uvicorn
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Fallback to 3000 for local
+    port = int(os.environ.get("PORT", 8000))  # Fallback to 3000 for local
     uvicorn.run("main:app", host="0.0.0.0", port=port)
 
