@@ -1,0 +1,24 @@
+# Web framework and ASGI server
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+
+# Deep Learning (TF includes compatible Keras)
+tensorflow==2.18.0
+
+# Image processing
+opencv-python-headless==4.9.0.80
+pillow==10.2.0
+
+# Data handling and ML
+numpy==1.26.4
+scikit-learn==1.4.2
+
+# MongoDB
+pymongo==4.11.1
+
+# YOLOv8
+ultralytics==8.1.28
+
+# File handling for FastAPI
+python-multipart==0.0.9
+aiofiles==23.2
