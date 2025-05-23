@@ -14,10 +14,6 @@ from database import get_database
 from pydantic import BaseModel
 from datetime import datetime,timedelta
 from aggressive import predict_aggressive_animal
-
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-
 # Initialize FastAPI
 app = FastAPI()
 
