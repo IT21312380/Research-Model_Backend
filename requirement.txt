@@ -16,6 +16,9 @@ scikit-learn==1.4.2
 # MongoDB
 pymongo==4.11.1
 
+# YOLOv8
+ultralytics==8.1.28
+
 # File handling for FastAPI
 python-multipart==0.0.9
 aiofiles==23.2

@@ -305,9 +305,9 @@ async def get_animal_data():
 
 
 import os
-import uvicorn
+
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 4177))  # Fallback to 3000 for local
+    port = int(os.environ.get("PORT", 8080))  # Fallback to 3000 for local
     uvicorn.run("main:app", host="0.0.0.0", port=port)
 
